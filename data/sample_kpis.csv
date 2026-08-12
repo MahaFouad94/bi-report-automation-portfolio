@@ -1,0 +1,7 @@
+business_area,kpi_name,current_value,previous_value,target_value,unit,higher_is_better
+Operations,Order Fulfillment Rate,96.2,91.8,95.0,%,true
+Operations,Average Processing Time,3.7,4.4,3.5,days,false
+Customer Experience,Customer Satisfaction,88.0,85.5,90.0,%,true
+Customer Experience,Response Time,1.8,2.8,2.0,hours,false
+Finance,Budget Utilization,70.0,72.0,80.0,%,true
+Data Quality,Validated Records,97.8,93.4,98.0,%,true
