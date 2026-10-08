@@ -1,35 +1,37 @@
 # Sample Executive KPI Report
 
-Generated: 2026-08-12
+Reporting month: 2025-12 (history from 2025-01)
 
 Data note: This report uses synthetic portfolio data only.
 
 ## Executive Summary
 
-The portfolio contains 6 KPIs across 4 business areas. 2 KPIs are on track, 2 require monitoring, and 2 need attention.
+The report covers 6 KPIs across 4 business areas. 2 are on track, 2 are within 5% of target and need monitoring, and 2 need attention.
+
+![KPI trends against target](kpi_trends.svg)
 
 ## KPI Status Table
 
-| Business Area | KPI | Current | Previous | Target | Change | Status |
-| --- | --- | ---: | ---: | ---: | ---: | --- |
-| Operations | Order Fulfillment Rate | 96.2% | 91.8% | 95.0% | +4.4% | On Track |
-| Operations | Average Processing Time | 3.7 days | 4.4 days | 3.5 days | -0.7 days | Needs Attention |
-| Customer Experience | Customer Satisfaction | 88.0% | 85.5% | 90.0% | +2.5% | Watch |
-| Customer Experience | Response Time | 1.8 hours | 2.8 hours | 2.0 hours | -1.0 hours | On Track |
-| Finance | Budget Utilization | 70.0% | 72.0% | 80.0% | -2.0% | Needs Attention |
-| Data Quality | Validated Records | 97.8% | 93.4% | 98.0% | +4.4% | Watch |
+| Business Area | KPI | Current | Previous | Target | Change | 12-month trend | Status |
+| --- | --- | ---: | ---: | ---: | ---: | --- | --- |
+| Operations | Order Fulfillment Rate | 96.2% | 95.6% | 95.0% | +0.6 pts | ▁▁▂▃▃▄▅▅▆▆▇█ | On Track |
+| Operations | Average Processing Time | 3.7 days | 3.8 days | 3.5 days | -0.1 days | █▇▆▆▆▄▄▄▃▂▂▁ | Needs Attention |
+| Customer Experience | Customer Satisfaction | 88.0% | 87.8% | 90.0% | +0.2 pts | ▁▃▁▄▃▃▄▅▇▆██ | Watch |
+| Customer Experience | Response Time | 1.8 hours | 1.9 hours | 2.0 hours | -0.1 hours | █▇▆▆▅▄▄▄▃▂▁▁ | On Track |
+| Finance | Budget Utilization | 70.0% | 70.0% | 80.0% | 0.0 pts | █▇▆▇▆▄▄▄▄▃▁▁ | Needs Attention |
+| Data Quality | Validated Records | 97.8% | 97.3% | 98.0% | +0.5 pts | ▁▂▂▃▄▄▅▅▆▇▇█ | Watch |
 
 ## Commentary
 
-- Order Fulfillment Rate: improved versus the previous period by 4.4%; status is On Track.
-- Average Processing Time: improved versus the previous period by 0.7 days; status is Needs Attention.
-- Customer Satisfaction: improved versus the previous period by 2.5%; status is Watch.
-- Response Time: improved versus the previous period by 1.0 hours; status is On Track.
-- Budget Utilization: declined versus the previous period by 2.0%; status is Needs Attention.
-- Validated Records: improved versus the previous period by 4.4%; status is Watch.
+- Order Fulfillment Rate improved by 0.6 pts on the month and improved by 5.7 pts since 2025-01; status is On Track.
+- Average Processing Time improved by 0.1 days on the month and improved by 1.2 days since 2025-01; status is Needs Attention.
+- Customer Satisfaction improved by 0.2 pts on the month and improved by 4.0 pts since 2025-01; status is Watch.
+- Response Time improved by 0.1 hours on the month and improved by 1.4 hours since 2025-01; status is On Track.
+- Budget Utilization was flat on the month and declined by 5.0 pts since 2025-01; status is Needs Attention.
+- Validated Records improved by 0.5 pts on the month and improved by 5.8 pts since 2025-01; status is Watch.
 
 ## Recommended Next Actions
 
-- Review KPIs marked `Needs Attention` before the next business review.
+- Agree an owner and recovery plan for: Average Processing Time, Budget Utilization.
 - Validate source freshness before distributing the final report.
 - Add owner, action, and due-date fields if this report becomes an operating tracker.

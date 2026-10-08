@@ -1,28 +1,22 @@
-# BI Report Automation Portfolio
+# BI Report Automation
 
-An NDA-safe portfolio project that demonstrates how KPI data can be converted into an executive-ready performance report.
+Turns a table of monthly KPI values into a management report: status against target, month-on-month change, a twelve-month trend and written commentary, generated in one command.
 
-This repository uses only synthetic sample data. It does not contain client files, internal dashboards, confidential metrics, private business logic, or data from any employer or signed NDA.
+All data is synthetic and produced by a script in this repository.
 
-## Project Goal
+## Sample Output
 
-Business teams often need fast, repeatable reporting from dashboards and KPI tables. This project shows a simple reporting workflow:
+![KPI trends against target](reports/kpi_trends.svg)
 
-1. Generate synthetic KPI data.
-2. Compare current performance against targets and previous-period values.
-3. Classify KPI status.
-4. Create a concise executive report in Markdown.
+The full generated report is in [reports/sample_executive_report.md](reports/sample_executive_report.md).
 
-The structure is intentionally simple so the workflow is easy to inspect, reuse, and explain.
+## What It Does
 
-## What This Demonstrates
-
-- Python automation for business reporting
-- KPI variance analysis
-- Target and previous-period comparison
-- Executive summary generation
-- Clean project documentation
-- Safe portfolio design without sensitive data
+1. Generates twelve months of history for six KPIs across four business areas (fixed random seed, 72 rows).
+2. Compares the latest month with its target and with the previous month.
+3. Classifies each KPI as On Track, Watch (within 5% of target) or Needs Attention, handling KPIs where lower is better.
+4. Draws a trend chart per KPI with the target line, and an inline trend in the status table.
+5. Writes commentary and next actions in Markdown, so the report reads directly on GitHub.
 
 ## Repository Structure
 
@@ -34,10 +28,13 @@ The structure is intentionally simple so the workflow is easy to inspect, reuse,
 │   ├── nda-safety.md
 │   └── project-notes.md
 ├── reports/
+│   ├── kpi_trends.svg
 │   └── sample_executive_report.md
 ├── src/
 │   ├── generate_report.py
 │   └── generate_synthetic_kpis.py
+├── tests/
+│   └── test_generate_report.py
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -45,64 +42,51 @@ The structure is intentionally simple so the workflow is easy to inspect, reuse,
 
 ## Quick Start
 
+Python 3.10 or later, standard library only.
+
 Generate the synthetic KPI dataset:
 
 ```bash
 python src/generate_synthetic_kpis.py
 ```
 
-Generate the executive report:
+Generate the report and chart:
 
 ```bash
 python src/generate_report.py
 ```
 
-The generated output will be saved to:
+Run the tests:
 
-```text
-reports/sample_executive_report.md
+```bash
+python -m unittest discover -s tests
 ```
 
-## Sample KPI Logic
+## Data Format
 
-Each KPI includes:
+One row per KPI per month:
 
-- Business area
-- KPI name
-- Current value
-- Previous value
-- Target value
-- Unit
-- Higher-is-better flag
+| Column | Meaning |
+| --- | --- |
+| `month` | Reporting month, `YYYY-MM` |
+| `business_area` | Owning area |
+| `kpi_name` | KPI name |
+| `value` | Value for the month |
+| `target_value` | Target |
+| `unit` | `%`, `days`, `hours` |
+| `higher_is_better` | `true` or `false` |
 
-The report calculates:
+To use the report on other data, replace `data/sample_kpis.csv` with a file in the same shape.
 
-- Change from previous period
-- Gap to target
-- Status: `On Track`, `Watch`, or `Needs Attention`
-
-## Example Use Cases
-
-This public version is generic, but the same pattern can support:
+## Where This Pattern Fits
 
 - Monthly business reviews
-- Dashboard narrative summaries
-- KPI monitoring reports
-- Data-quality summaries
-- Executive status updates
+- Narrative summaries to accompany a dashboard
+- KPI monitoring and data-quality status reports
 
-## Privacy And NDA Position
+## Data Policy
 
-This project is designed for public portfolio use. All data is invented, and all business areas are generic.
-
-See [docs/nda-safety.md](docs/nda-safety.md) for the safety checklist.
-
-## Tools
-
-- Python
-- CSV
-- Markdown
-- GitHub
+Only synthetic data belongs in this repository. See [docs/nda-safety.md](docs/nda-safety.md) for the checklist.
 
 ## Author
 

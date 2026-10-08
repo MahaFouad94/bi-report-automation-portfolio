@@ -1,81 +1,62 @@
-"""Generate synthetic KPI data for the portfolio report demo."""
+"""Generate twelve months of synthetic KPI history for the report demo."""
 
 from __future__ import annotations
 
 import csv
+import random
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_PATH = ROOT / "data" / "sample_kpis.csv"
 
+SEED = 7
+MONTHS = [f"2025-{month:02d}" for month in range(1, 13)]
 
-ROWS = [
-    {
-        "business_area": "Operations",
-        "kpi_name": "Order Fulfillment Rate",
-        "current_value": 96.2,
-        "previous_value": 91.8,
-        "target_value": 95.0,
-        "unit": "%",
-        "higher_is_better": "true",
-    },
-    {
-        "business_area": "Operations",
-        "kpi_name": "Average Processing Time",
-        "current_value": 3.7,
-        "previous_value": 4.4,
-        "target_value": 3.5,
-        "unit": "days",
-        "higher_is_better": "false",
-    },
-    {
-        "business_area": "Customer Experience",
-        "kpi_name": "Customer Satisfaction",
-        "current_value": 88.0,
-        "previous_value": 85.5,
-        "target_value": 90.0,
-        "unit": "%",
-        "higher_is_better": "true",
-    },
-    {
-        "business_area": "Customer Experience",
-        "kpi_name": "Response Time",
-        "current_value": 1.8,
-        "previous_value": 2.8,
-        "target_value": 2.0,
-        "unit": "hours",
-        "higher_is_better": "false",
-    },
-    {
-        "business_area": "Finance",
-        "kpi_name": "Budget Utilization",
-        "current_value": 70.0,
-        "previous_value": 72.0,
-        "target_value": 80.0,
-        "unit": "%",
-        "higher_is_better": "true",
-    },
-    {
-        "business_area": "Data Quality",
-        "kpi_name": "Validated Records",
-        "current_value": 97.8,
-        "previous_value": 93.4,
-        "target_value": 98.0,
-        "unit": "%",
-        "higher_is_better": "true",
-    },
+# business area, KPI, unit, higher is better, target, start value, end value, monthly noise
+KPIS = [
+    ("Operations", "Order Fulfillment Rate", "%", True, 95.0, 90.5, 96.2, 0.6),
+    ("Operations", "Average Processing Time", "days", False, 3.5, 4.9, 3.7, 0.12),
+    ("Customer Experience", "Customer Satisfaction", "%", True, 90.0, 84.0, 88.0, 0.7),
+    ("Customer Experience", "Response Time", "hours", False, 2.0, 3.2, 1.8, 0.12),
+    ("Finance", "Budget Utilization", "%", True, 80.0, 75.0, 70.0, 1.0),
+    ("Data Quality", "Validated Records", "%", True, 98.0, 92.0, 97.8, 0.5),
 ]
+FIELDS = ["month", "business_area", "kpi_name", "value", "target_value", "unit", "higher_is_better"]
+
+
+def build_rows() -> list[dict[str, object]]:
+    """Each KPI drifts from its start value to its end value with seeded noise."""
+    rng = random.Random(SEED)
+    rows = []
+    last = len(MONTHS) - 1
+    for area, name, unit, higher_is_better, target, start, end, noise in KPIS:
+        for index, month in enumerate(MONTHS):
+            value = start + (end - start) * index / last
+            if index not in (0, last):
+                value += rng.uniform(-noise, noise)
+            rows.append(
+                {
+                    "month": month,
+                    "business_area": area,
+                    "kpi_name": name,
+                    "value": round(value, 1),
+                    "target_value": target,
+                    "unit": unit,
+                    "higher_is_better": str(higher_is_better).lower(),
+                }
+            )
+    return rows
 
 
 def main() -> None:
+    rows = build_rows()
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT_PATH.open("w", newline="", encoding="utf-8") as file:
-        writer = csv.DictWriter(file, fieldnames=ROWS[0].keys())
+        writer = csv.DictWriter(file, fieldnames=FIELDS)
         writer.writeheader()
-        writer.writerows(ROWS)
-
-    print(f"Wrote synthetic KPI data to {OUTPUT_PATH}")
+        writer.writerows(rows)
+    print(f"Wrote {len(rows)} rows to {OUTPUT_PATH}")
 
 
 if __name__ == "__main__":

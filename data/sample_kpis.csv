@@ -1,7 +1,73 @@
-business_area,kpi_name,current_value,previous_value,target_value,unit,higher_is_better
-Operations,Order Fulfillment Rate,96.2,91.8,95.0,%,true
-Operations,Average Processing Time,3.7,4.4,3.5,days,false
-Customer Experience,Customer Satisfaction,88.0,85.5,90.0,%,true
-Customer Experience,Response Time,1.8,2.8,2.0,hours,false
-Finance,Budget Utilization,70.0,72.0,80.0,%,true
-Data Quality,Validated Records,97.8,93.4,98.0,%,true
+month,business_area,kpi_name,value,target_value,unit,higher_is_better
+2025-01,Operations,Order Fulfillment Rate,90.5,95.0,%,true
+2025-02,Operations,Order Fulfillment Rate,90.8,95.0,%,true
+2025-03,Operations,Order Fulfillment Rate,91.1,95.0,%,true
+2025-04,Operations,Order Fulfillment Rate,92.2,95.0,%,true
+2025-05,Operations,Order Fulfillment Rate,92.1,95.0,%,true
+2025-06,Operations,Order Fulfillment Rate,93.1,95.0,%,true
+2025-07,Operations,Order Fulfillment Rate,93.4,95.0,%,true
+2025-08,Operations,Order Fulfillment Rate,93.6,95.0,%,true
+2025-09,Operations,Order Fulfillment Rate,94.7,95.0,%,true
+2025-10,Operations,Order Fulfillment Rate,94.6,95.0,%,true
+2025-11,Operations,Order Fulfillment Rate,95.6,95.0,%,true
+2025-12,Operations,Order Fulfillment Rate,96.2,95.0,%,true
+2025-01,Operations,Average Processing Time,4.9,3.5,days,false
+2025-02,Operations,Average Processing Time,4.7,3.5,days,false
+2025-03,Operations,Average Processing Time,4.6,3.5,days,false
+2025-04,Operations,Average Processing Time,4.6,3.5,days,false
+2025-05,Operations,Average Processing Time,4.5,3.5,days,false
+2025-06,Operations,Average Processing Time,4.3,3.5,days,false
+2025-07,Operations,Average Processing Time,4.2,3.5,days,false
+2025-08,Operations,Average Processing Time,4.2,3.5,days,false
+2025-09,Operations,Average Processing Time,4.1,3.5,days,false
+2025-10,Operations,Average Processing Time,3.9,3.5,days,false
+2025-11,Operations,Average Processing Time,3.8,3.5,days,false
+2025-12,Operations,Average Processing Time,3.7,3.5,days,false
+2025-01,Customer Experience,Customer Satisfaction,84.0,90.0,%,true
+2025-02,Customer Experience,Customer Satisfaction,85.0,90.0,%,true
+2025-03,Customer Experience,Customer Satisfaction,84.1,90.0,%,true
+2025-04,Customer Experience,Customer Satisfaction,85.6,90.0,%,true
+2025-05,Customer Experience,Customer Satisfaction,85.2,90.0,%,true
+2025-06,Customer Experience,Customer Satisfaction,85.3,90.0,%,true
+2025-07,Customer Experience,Customer Satisfaction,85.6,90.0,%,true
+2025-08,Customer Experience,Customer Satisfaction,86.3,90.0,%,true
+2025-09,Customer Experience,Customer Satisfaction,87.4,90.0,%,true
+2025-10,Customer Experience,Customer Satisfaction,86.8,90.0,%,true
+2025-11,Customer Experience,Customer Satisfaction,87.8,90.0,%,true
+2025-12,Customer Experience,Customer Satisfaction,88.0,90.0,%,true
+2025-01,Customer Experience,Response Time,3.2,2.0,hours,false
+2025-02,Customer Experience,Response Time,3.1,2.0,hours,false
+2025-03,Customer Experience,Response Time,2.9,2.0,hours,false
+2025-04,Customer Experience,Response Time,2.8,2.0,hours,false
+2025-05,Customer Experience,Response Time,2.6,2.0,hours,false
+2025-06,Customer Experience,Response Time,2.5,2.0,hours,false
+2025-07,Customer Experience,Response Time,2.4,2.0,hours,false
+2025-08,Customer Experience,Response Time,2.4,2.0,hours,false
+2025-09,Customer Experience,Response Time,2.2,2.0,hours,false
+2025-10,Customer Experience,Response Time,2.0,2.0,hours,false
+2025-11,Customer Experience,Response Time,1.9,2.0,hours,false
+2025-12,Customer Experience,Response Time,1.8,2.0,hours,false
+2025-01,Finance,Budget Utilization,75.0,80.0,%,true
+2025-02,Finance,Budget Utilization,74.5,80.0,%,true
+2025-03,Finance,Budget Utilization,73.7,80.0,%,true
+2025-04,Finance,Budget Utilization,74.2,80.0,%,true
+2025-05,Finance,Budget Utilization,73.6,80.0,%,true
+2025-06,Finance,Budget Utilization,72.2,80.0,%,true
+2025-07,Finance,Budget Utilization,72.4,80.0,%,true
+2025-08,Finance,Budget Utilization,71.9,80.0,%,true
+2025-09,Finance,Budget Utilization,72.1,80.0,%,true
+2025-10,Finance,Budget Utilization,71.4,80.0,%,true
+2025-11,Finance,Budget Utilization,70.0,80.0,%,true
+2025-12,Finance,Budget Utilization,70.0,80.0,%,true
+2025-01,Data Quality,Validated Records,92.0,98.0,%,true
+2025-02,Data Quality,Validated Records,93.0,98.0,%,true
+2025-03,Data Quality,Validated Records,92.7,98.0,%,true
+2025-04,Data Quality,Validated Records,93.5,98.0,%,true
+2025-05,Data Quality,Validated Records,94.4,98.0,%,true
+2025-06,Data Quality,Validated Records,94.3,98.0,%,true
+2025-07,Data Quality,Validated Records,95.2,98.0,%,true
+2025-08,Data Quality,Validated Records,95.2,98.0,%,true
+2025-09,Data Quality,Validated Records,96.4,98.0,%,true
+2025-10,Data Quality,Validated Records,97.0,98.0,%,true
+2025-11,Data Quality,Validated Records,97.3,98.0,%,true
+2025-12,Data Quality,Validated Records,97.8,98.0,%,true
